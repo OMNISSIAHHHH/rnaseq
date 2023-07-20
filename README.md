@@ -1,7 +1,7 @@
 # RNASEQ
 This repository is used for project RNA sequencing for Institute of Biophysics of Chinese Academy of Science (IBP)
-## SETUP
-### A. Install Miniconda
+## SETUP 准备
+### A. Install Miniconda 
 MACOS:
 ```
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
@@ -23,7 +23,7 @@ conda config --add channels bioconda
 ```
 WINDOWS:
 [Official Minidonda Installation Guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html)
-### B. Folder Structure
+### B. Folder Structure (待修改）
 ```
 ── new_workflow/
   │   └── annotation/               <- Genome annotation file (.GTF/.GFF)
@@ -51,7 +51,6 @@ WINDOWS:
   │  
   │   └── star_index/               <-  Folder to store the indexed genome files from STAR 
 ```
-## Quality Analysis
-## Difference Analysis
+## Analysis Procedure 分析进程
 
 
