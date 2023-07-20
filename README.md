@@ -2,8 +2,8 @@
 This repository is used for project RNA sequencing for Institute of Biophysics of Chinese Academy of Science (IBP)
 ## SETUP
 ### A. Install Miniconda
-```
 MACOS:
+```
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
 
 Run the miniconda installation
@@ -20,10 +20,11 @@ conda config --add channels conda-forge
 conda config --add channels defaults
 conda config --add channels r
 conda config --add channels bioconda
-
+```
+WINDOWS:
 Windows:
 [Official Minidonda Installation Guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html)
-```
+
 ## Quality Analysis
 ## Difference Analysis
 
