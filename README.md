@@ -22,7 +22,7 @@ conda config --add channels r
 conda config --add channels bioconda
 
 Windows:
-https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html
+[Official Minidonda Installation Guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html)
 ```
 ## Quality Analysis
 ## Difference Analysis
