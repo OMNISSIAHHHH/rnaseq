@@ -1,7 +1,9 @@
 # RNASEQ
-This repository is used for project RNA sequencing for Institute of Biophysics of Chinese Academy of Science (IBP)
+This repository is used for project RNA sequencing for Liang's Lab, Institute of Biophysics of Chinese Academy of Science (IBP).
 ## SETUP 准备
 ### A. Install Miniconda 
+分析流程中将运用到大量的miniconda包，安装方法如下：
+
 MACOS:
 ```
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
@@ -51,6 +53,21 @@ WINDOWS:
   │  
   │   └── star_index/               <-  Folder to store the indexed genome files from STAR 
 ```
-## Analysis Procedure 分析进程
+## Analysis Procedure 1: Quality Check 分析进程1: 质量检测
+## Analysis Procedure 2: Low Quality Sequence Removal 分析进程2: 低质量序列删除
+## Analysis Procedure 3: rRNA Removal(Conditional) 分析进程3: rRNA序列删除（条件性）
+## Analysis Procedure 4: Genome Alignment 分析进程4:基因组比对
+## Analysis Procedure 5: Gene Counting 分析进程5:基因计数
+## Analysis Procedure 6: Fast Report via MultiQC 分析进程6:使用MultiQC生成简易结果报告
+<br>
+
+以下为非必要分析流程，用于获得进一步的数据可视化结果
+## Analysis Procedure 7: R Data Input 分析进程7: R数据输入
+## Analysis Procedure 8: Gene Symbols Annotation 分析进程8: 基因注释
+## Analysis Procedure 9: Data Plot & Visualizatioin 分析进程9: 数据图表制作及数据可视化
+
+
+
+
 
 
