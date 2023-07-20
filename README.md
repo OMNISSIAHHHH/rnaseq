@@ -59,8 +59,7 @@ WINDOWS:
 ## Analysis Procedure 4: Genome Alignment 分析进程4:基因组比对
 ## Analysis Procedure 5: Gene Counting 分析进程5:基因计数
 ## Analysis Procedure 6: Fast Report via MultiQC 分析进程6:使用MultiQC生成简易结果报告
-<br>
-
+---
 以下为非必要分析流程，用于获得进一步的数据可视化结果
 ## Analysis Procedure 7: R Data Input 分析进程7: R数据输入
 ## Analysis Procedure 8: Gene Symbols Annotation 分析进程8: 基因注释
