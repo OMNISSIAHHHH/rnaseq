@@ -54,6 +54,15 @@ WINDOWS:
   │   └── star_index/               <-  Folder to store the indexed genome files from STAR 
 ```
 ## Analysis Procedure 1: Quality Check 分析进程1: 质量检测
+### Method: FastQC
+FastQC aims to provide a simple way to do some quality control checks on raw sequence data coming from high throughput sequencing pipelines.
+Installation through bioconda:
+```
+conda install -c bioconda fastqc --yes
+```
+Installation through [official website](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+
+
 ## Analysis Procedure 2: Low Quality Sequence Removal 分析进程2: 低质量序列删除
 ## Analysis Procedure 3: rRNA Removal(Conditional) 分析进程3: rRNA序列删除（条件性）
 ## Analysis Procedure 4: Genome Alignment 分析进程4:基因组比对
