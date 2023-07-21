@@ -64,8 +64,10 @@ conda install -c bioconda fastqc --yes
 Installation through [official website](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)  
 ### FastQC Command
 ```
-fastqc -o <output directory> <sequencing file 1, sequencing file 2...>   <-- set output directory, and each sequencing file will generate a quality report. 【在指定输出路径输出质量分析文件，每个测序文件单独生成一个质量分析文件】  
-For more help on fastqc: fastqc -h 【查看帮助文档】
+fastqc -o <output directory> <sequencing file 1, sequencing file 2...>   <-- set output directory, and each sequencing file will generate a quality report.  
+【在指定输出路径输出质量分析文件，每个测序文件单独生成一个质量分析文件】  
+For more help on fastqc: fastqc -h  
+【查看帮助文档】
 ```
 
 
