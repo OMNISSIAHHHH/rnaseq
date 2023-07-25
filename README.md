@@ -84,14 +84,33 @@ Usage: trim_galore [options] <filename(s)>`
 Common [options]
 -- illumina: Adapter sequence to be trimmed is the first 13bp of the Illumina universal adapter AGATCGGAAGAGC 
 instead of the default auto-detection of adapter sequence. 【指定裁剪掉illumina 特有adapter 序列，而非自动识别】
--- gzip: Compress the output file with gzip. 【使用gzip压缩输出文件
+-- gzip: Compress the output file with gzip. 【使用gzip压缩输出文件】
 -- -o/--output_dir <DIR>： If specified all output will be written to this directory instead of the current directory. If the directory doesn't exist it will be created for you. 【特别指定结果输出位置，如该路径不存在，则会创造该路径】
 ```
 For more options visit [Trim Galore Official Usage Guide](https://github.com/FelixKrueger/TrimGalore/blob/master/Docs/Trim_Galore_User_Guide.md)
 
 ## Analysis Procedure 3: rRNA Removal(Conditional) 分析进程3: rRNA序列删除（条件性）
+### Method: SortMeRNA
+
+### SortMeRNA Installation
+Installation through Bioconda:
+```
+conda install -c bioconda sortmerna --yes
+```
+### SortMeRNA Command
+Usage:  
+The only required options are --ref and --reads. Options (any) can be specified usig a single dash e.g. -ref and -reads. Both plain fasta/fastq and archived fasta.gz/fastq.gz files are accepted. File extensions .fastq, .fastq.gz, .fq, .fq.gz, .fasta, … are optional. The format and compression are automatically recognized. Relative paths are accepted.  
+Common Commands:
+```
+sortmerna --ref REF_PATH_1 --ref REF_PATH_2 --ref REF_PATH_3 --reads READS_PATH_1 --reads READS_PATH_2
+【如果是paired results 则须如上方所示 --reads 两个文件，如果是 single， 则仅需一个--reads。ref 文件可以有多个】
+```
+For More information, visit [SortMeRNA Documentation](https://sortmerna.readthedocs.io/en/latest/index.html)
+
 ## Analysis Procedure 4: Genome Alignment 分析进程4:基因组比对
+### Method: STAR V
 ## Analysis Procedure 5: Gene Counting 分析进程5:基因计数
+
 ## Analysis Procedure 6: Fast Report via MultiQC 分析进程6:使用MultiQC生成简易结果报告
 ---
 以下为非必要分析流程，用于获得进一步的数据可视化结果
