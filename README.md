@@ -68,10 +68,21 @@ fastqc -o <output directory> <sequencing file 1, sequencing file 2...>   <-- set
 【在指定输出路径输出质量分析文件，每个测序文件单独生成一个质量分析文件】  
 For more help on fastqc: fastqc -h  
 【查看帮助文档】
-```
+
 
 
 ## Analysis Procedure 2: Low Quality Sequence Removal 分析进程2: 低质量序列删除
+### Method: Trim Galore  
+
+### Trim Galore Installation  
+Installation through Bioconda:
+```
+conda install trim-galore
+```
+### Trim Galore Command
+Usage `trim_galore [options] <filename(s)>`
+
+
 ## Analysis Procedure 3: rRNA Removal(Conditional) 分析进程3: rRNA序列删除（条件性）
 ## Analysis Procedure 4: Genome Alignment 分析进程4:基因组比对
 ## Analysis Procedure 5: Gene Counting 分析进程5:基因计数
