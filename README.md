@@ -79,8 +79,15 @@ Installation through Bioconda:
 conda install trim-galore
 ```
 ### Trim Galore Command
-Usage `trim_galore [options] <filename(s)>`
-
+```
+Usage: trim_galore [options] <filename(s)>`
+Common [options]
+-- illumina: Adapter sequence to be trimmed is the first 13bp of the Illumina universal adapter AGATCGGAAGAGC 
+instead of the default auto-detection of adapter sequence. 【指定裁剪掉illumina 特有adapter 序列，而非自动识别】
+-- gzip: Compress the output file with gzip. 【使用gzip压缩输出文件
+-- -o/--output_dir <DIR>： If specified all output will be written to this directory instead of the current directory. If the directory doesn't exist it will be created for you. 【特别指定结果输出位置，如该路径不存在，则会创造该路径】
+```
+For more options visit [Trim Galore Official Usage Guide](https://github.com/FelixKrueger/TrimGalore/blob/master/Docs/Trim_Galore_User_Guide.md)
 
 ## Analysis Procedure 3: rRNA Removal(Conditional) 分析进程3: rRNA序列删除（条件性）
 ## Analysis Procedure 4: Genome Alignment 分析进程4:基因组比对
