@@ -1,5 +1,6 @@
 # RNASEQ
-This repository is used for project RNA sequencing for Liang's Lab, Institute of Biophysics of Chinese Academy of Science (IBP).
+RNA sequencing for Liang's Lab, Institute of Biophysics of Chinese Academy of Science (IBP). 供中国科学院生物物理研究所梁伟组使用的转录组数据分析项目。
+
 ## SETUP 准备
 ### A. Install Miniconda 
 分析流程中将运用到大量的miniconda包，安装方法如下：
