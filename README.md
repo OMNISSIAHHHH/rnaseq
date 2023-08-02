@@ -127,6 +127,31 @@ Output:
 ```
 
 ## Analysis Procedure 6: Fast Report via MultiQC 分析进程6:使用MultiQC生成简易结果报告
+### Method: MultiQC 
+We present MultiQC, a tool to create a single report visualising output from multiple tools across many samples, enabling global trends and biases to be quickly identified. MultiQC can plot data from many common bioinformatics tools and is built to allow easy extension and customization.  
+### MultiQC Command
+Installation through Bioconda:
+```
+conda install -c bioconda multiqc -yes
+```
+Usage
+```
+# Scan:
+multiqc data/
+multiqc data/ ../proj_one/analysis/ /tmp/results
+multiqc data/*_fastqc.zip
+multiqc data/sample_1*
+multiqc --file-list my_file_list.txt 【如果有一个储存好的文件路径列表在txt中，也可以读取该txt文件】
+
+# Rename:
+The report is called multiqc_report.html by default. Tab-delimited data files are created in multiqc_data/, containing additional information. You can use a custom name for the report with the -n/--filename parameter, or instruct MultiQC to create them in a subdirectory using the -o/--outdir parameter.
+
+# Exporting Plots:
+You can do this with the -p/--export command line flag. By default, plots will be saved in a directory called multiqc_plots as .png, .svg and .pdf files. Raw data for the plots are also saved to files.
+# Help:
+multiqc -h
+
+```
 
 ---
 以下为非必要分析流程，用于获得进一步的数据可视化结果
