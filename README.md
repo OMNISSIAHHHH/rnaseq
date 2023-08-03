@@ -91,7 +91,9 @@ instead of the default auto-detection of adapter sequence. 【指定裁剪掉ill
 For more options visit [Trim Galore Official Usage Guide](https://github.com/FelixKrueger/TrimGalore/blob/master/Docs/Trim_Galore_User_Guide.md)
 
 ## Analysis Procedure 3: rRNA Removal(Conditional) 分析进程3: rRNA序列删除（条件性）
+
 ### Method: SortMeRNA
+SortMeRNA is a local sequence alignment tool for filtering, mapping and OTU clustering. The core algorithm is based on approximate seeds and allows for fast and sensitive analyses of NGS reads. The main application of SortMeRNA is filtering rRNA from metatranscriptomic data. 
 
 ### SortMeRNA Installation
 Installation through Bioconda:
@@ -101,6 +103,7 @@ conda install -c bioconda sortmerna --yes
 ### SortMeRNA Command
 Usage:  
 The only required options are --ref and --reads. Options (any) can be specified usig a single dash e.g. -ref and -reads. Both plain fasta/fastq and archived fasta.gz/fastq.gz files are accepted. File extensions .fastq, .fastq.gz, .fq, .fq.gz, .fasta, … are optional. The format and compression are automatically recognized. Relative paths are accepted.  
+
 Common Commands:
 ```
 sortmerna --ref REF_PATH_1 --ref REF_PATH_2 --ref REF_PATH_3 --reads READS_PATH_1 --reads READS_PATH_2
@@ -110,10 +113,43 @@ For More information, visit [SortMeRNA Documentation](https://sortmerna.readthed
 
 ## Analysis Procedure 4: Genome Alignment 分析进程4:基因组比对
 ### Method: STAR 
+Spliced Transcripts Alignment to a Reference (STAR) is a fast RNA-seq read mapper, with support for splice-junction and fusion read detection. STAR aligns reads by finding the Maximal Mappable Prefix (MMP) hits between reads (or read pairs) and the genome, using a Suffix Array index.
 ### STAR Installation
+Installation through Bioconda:
+```
+conda install -c bioconda star -yes
+```
 ### STAR Command
+* Star_index 建立基因组索引
+在使用aligner之前需要先建立基因组索引，包含fasta序列文件以及gtf annotation文件。本repo包含有人类基因组Gh38.p14 (截止2023.8.3的最新版本），文件名为Homo_sapien_gh38. 本步骤仅运行一次，由于运算量巨大，可能需要30min至3h左右的时间
+```
+STAR --runMode genomeGenerate \ 【创造索引模式开启】
+--runThreadN  20 \ 【规定线程数】
+--genomeFastaFiles \ 【\后输入路径提供基因组fasta文件】
+--genomeDir hg19_STAR_db 【提供索引文件输出目录，该目录（文件夹）需要提前创造好。可以通过mkdir先创造，或者直接生成文件夹后复制路径】
+--sjdbGTFfile hg19.gtf \ 【\后输入路径提供基因组gtf 注释文件】
+--sjdbOverhang 【overhang数字，默认为100】
+```
+* Star_alignment 基因比对
+```
+STAR --runThreadN  20 \ 【规定线程数】
+--genomeDir /path/to/genomeDir 【输入索引文件路径】
+--readFilesIn /path/to/read1 [/path/to/read2 ] 【输入比对测序fasta文件路径，如果是paired read 则两个都需要输入. 如果有多对基因文件，则须：
+For single-end reads use a comma separated list
+(no spaces around commas), e.g.:
+--readFilesIn sample1.fq,sample2.fq,sample3.fq
+
+For paired-end reads, use comma separated list for read1, followed by space, followed by comma
+separated list for read2, e.g.:
+--readFilesIn s1read1.fq,s2read1.fq,s3read1.fq s1read2.fq,s2read2.fq,s3read2.fq
+
+For multiple read files, the corresponding read groups can be supplied with space/comma/space-
+separated list in --outSAMattrRGline, e.g.
+--outSAMattrRGline ID:sample1 , ID:sample2 , ID:sample3】
+```
 #### possible issue
 mac m1/m2 (pro) chip: 输入指令时不要输入runThreadN。该指令会指定分配给任务的线程数。制定线程数可能会导致电脑严重卡顿，且造成自动终止 (zsh: killed) 
+
 ## Analysis Procedure 5: Gene Counting 分析进程5:基因计数
 ### Method: feature (subread)
 ### Subread Installation
