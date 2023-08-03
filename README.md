@@ -131,8 +131,10 @@ conda install -c bioconda star -yes
 ```
 ### STAR Command
 * Star_index 建立基因组索引  
-在使用aligner之前需要先建立基因组索引，包含fasta序列文件以及gtf annotation文件。本repo包含有人类基因组Gh38.p14 (截止2023.8.3的最新版本），
-文件名为Homo_sapien_gh38. 本步骤仅运行一次，由于运算量巨大，可能需要30min至3h左右的时间
+在使用aligner之前需要先建立基因组索引，包含fasta序列文件以及gtf annotation文件。homo sapiens 推荐使用[NCBI Gh38](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/)
+下载选项如下：
+<img width="545" alt="image" src="https://github.com/OMNISSIAHHHH/rnaseq/assets/44955859/56554db6-4a9d-4f3e-b13e-e961b80bb7d3">
+索引建立仅需运行一次，由于运算量巨大，可能需要30min至3h左右的时间
 ```
 STAR --runMode genomeGenerate \ 【创造索引模式开启】
 --runThreadN  20 \ 【规定线程数】
