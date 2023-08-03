@@ -73,17 +73,24 @@ For more help on fastqc: fastqc -h
 ```
 
 ## Analysis Procedure 2: Low Quality Sequence Removal 分析进程2: 低质量序列删除
-### Method: Trim Galore  
-
+### Method: Trim Galore!
+Trim Galore! is a wrapper script to automate quality and adapter trimming as well as quality control, with some added functionality to remove biased methylation positions for RRBS sequence files (for directional, non-directional (or paired-end) sequencing).
 ### Trim Galore Installation  
 Installation through Bioconda:
 ```
-conda install trim-galore
+conda install -c bioconda trim-galore
 ```
 ### Trim Galore Command
 ```
-Usage: trim_galore [options] <filename(s)>`
-Common [options]
+Usage: 
+trim_galore [options] <filename(s)>
+Common commands:
+trim_galore
+--paired 【说明数据为双端测序结果，如果是single-end则不需要加这个】
+--quality 20 【最低质量去除值，默认为20】
+-a XXXXXXXXXX 【可以指定read 1的adapter sequence】
+-a2 XXXXXXXXXX 【可以指定read 2 的adapter sequence】
+--length 20 【删除小鱼该长度的reads,默认值为20，如不想删除可设为0】
 -- illumina: Adapter sequence to be trimmed is the first 13bp of the Illumina universal adapter AGATCGGAAGAGC 
 instead of the default auto-detection of adapter sequence. 【指定裁剪掉illumina 特有adapter 序列，而非自动识别】
 -- gzip: Compress the output file with gzip. 【使用gzip压缩输出文件】
