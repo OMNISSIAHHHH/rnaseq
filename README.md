@@ -56,7 +56,8 @@ WINDOWS:
 ```
 ## Analysis Procedure 1: Quality Check 分析进程1: 质量检测
 ### Method: FastQC
-FastQC aims to provide a simple way to do some quality control checks on raw sequence data coming from high throughput sequencing pipelines.[Introduction to FastQC output content](https://zhuanlan.zhihu.com/p/20731723)  
+FastQC aims to provide a simple way to do some quality control checks on raw sequence data coming from high throughput sequencing pipelines.
+[Introduction to FastQC output content](https://zhuanlan.zhihu.com/p/20731723)  
 ### FastQC Installation
 Installation through bioconda:  
 ```
@@ -86,7 +87,8 @@ Common [options]
 -- illumina: Adapter sequence to be trimmed is the first 13bp of the Illumina universal adapter AGATCGGAAGAGC 
 instead of the default auto-detection of adapter sequence. 【指定裁剪掉illumina 特有adapter 序列，而非自动识别】
 -- gzip: Compress the output file with gzip. 【使用gzip压缩输出文件】
--- -o/--output_dir <DIR>： If specified all output will be written to this directory instead of the current directory. If the directory doesn't exist it will be created for you. 【特别指定结果输出位置，如该路径不存在，则会创造该路径】
+-- -o/--output_dir <DIR>： If specified all output will be written to this directory instead of the current directory.
+If the directory doesn't exist it will be created for you. 【特别指定结果输出位置，如该路径不存在，则会创造该路径】
 ```
 For more options visit [Trim Galore Official Usage Guide](https://github.com/FelixKrueger/TrimGalore/blob/master/Docs/Trim_Galore_User_Guide.md)
 
@@ -102,7 +104,9 @@ conda install -c bioconda sortmerna --yes
 ```
 ### SortMeRNA Command
 Usage:  
-The only required options are --ref and --reads. Options (any) can be specified usig a single dash e.g. -ref and -reads. Both plain fasta/fastq and archived fasta.gz/fastq.gz files are accepted. File extensions .fastq, .fastq.gz, .fq, .fq.gz, .fasta, … are optional. The format and compression are automatically recognized. Relative paths are accepted.  
+The only required options are --ref and --reads. Options (any) can be specified usig a single dash e.g. -ref and -reads. 
+Both plain fasta/fastq and archived fasta.gz/fastq.gz files are accepted. File extensions .fastq, .fastq.gz, .fq, .fq.gz, .fasta, … are optional. 
+The format and compression are automatically recognized. Relative paths are accepted.  
 
 Common Commands:
 ```
@@ -113,15 +117,17 @@ For More information, visit [SortMeRNA Documentation](https://sortmerna.readthed
 
 ## Analysis Procedure 4: Genome Alignment 分析进程4:基因组比对
 ### Method: STAR 
-Spliced Transcripts Alignment to a Reference (STAR) is a fast RNA-seq read mapper, with support for splice-junction and fusion read detection. STAR aligns reads by finding the Maximal Mappable Prefix (MMP) hits between reads (or read pairs) and the genome, using a Suffix Array index.
+Spliced Transcripts Alignment to a Reference (STAR) is a fast RNA-seq read mapper, with support for splice-junction and fusion read detection.
+STAR aligns reads by finding the Maximal Mappable Prefix (MMP) hits between reads (or read pairs) and the genome, using a Suffix Array index.
 ### STAR Installation
 Installation through Bioconda:
 ```
 conda install -c bioconda star -yes
 ```
 ### STAR Command
-* Star_index 建立基因组索引
-在使用aligner之前需要先建立基因组索引，包含fasta序列文件以及gtf annotation文件。本repo包含有人类基因组Gh38.p14 (截止2023.8.3的最新版本），文件名为Homo_sapien_gh38. 本步骤仅运行一次，由于运算量巨大，可能需要30min至3h左右的时间
+* Star_index 建立基因组索引  
+在使用aligner之前需要先建立基因组索引，包含fasta序列文件以及gtf annotation文件。本repo包含有人类基因组Gh38.p14 (截止2023.8.3的最新版本），
+文件名为Homo_sapien_gh38. 本步骤仅运行一次，由于运算量巨大，可能需要30min至3h左右的时间
 ```
 STAR --runMode genomeGenerate \ 【创造索引模式开启】
 --runThreadN  20 \ 【规定线程数】
@@ -134,7 +140,8 @@ STAR --runMode genomeGenerate \ 【创造索引模式开启】
 ```
 STAR --runThreadN  20 \ 【规定线程数】
 --genomeDir /path/to/genomeDir 【输入索引文件路径】
---readFilesIn /path/to/read1 [/path/to/read2 ] 【输入比对测序fasta文件路径，如果是paired read 则两个都需要输入. 如果有多对基因文件，则须：
+--readFilesIn /path/to/read1 [/path/to/read2 ] 【输入比对测序fasta文件路径，如果是paired read 则两个都需要输入.
+如果有多对基因文件，则须：
 For single-end reads use a comma separated list
 (no spaces around commas), e.g.:
 --readFilesIn sample1.fq,sample2.fq,sample3.fq
@@ -147,12 +154,17 @@ For multiple read files, the corresponding read groups can be supplied with spac
 separated list in --outSAMattrRGline, e.g.
 --outSAMattrRGline ID:sample1 , ID:sample2 , ID:sample3】
 ```
-#### possible issue
-mac m1/m2 (pro) chip: 输入指令时不要输入runThreadN。该指令会指定分配给任务的线程数。制定线程数可能会导致电脑严重卡顿，且造成自动终止 (zsh: killed) 
+#### possible issue 可能存在的问题  
+mac m1/m2 (pro) chip: 输入指令时不要输入runThreadN。该指令会指定分配给任务的线程数。制定线程数可能会导致电脑严重卡顿，且造成自动终止 (zsh: killed)   
+
+For more information, visit [STAR Manual](https://physiology.med.cornell.edu/faculty/skrabanek/lab/angsd/lecture_notes/STARmanual.pdf)
 
 ## Analysis Procedure 5: Gene Counting 分析进程5:基因计数
-### Method: feature (subread)
+
+### Method: featureCounts (Subread)
+
 ### Subread Installation
+
 Installation through Bioconda:
 ```
 conda install -c bioconda subread - yes
