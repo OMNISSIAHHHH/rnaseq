@@ -131,10 +131,12 @@ conda install -c bioconda star -yes
 ```
 ### STAR Command
 * Star_index 建立基因组索引  
-在使用aligner之前需要先建立基因组索引，包含fasta序列文件以及gtf annotation文件。homo sapiens 推荐使用[NCBI Gh38](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/)
+在使用aligner之前需要先建立基因组索引，包含fasta序列文件以及gtf annotation文件。homo sapiens 推荐使用[NCBI Gh38](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/)  
 下载选项如下：
-<img width="545" alt="image" src="https://github.com/OMNISSIAHHHH/rnaseq/assets/44955859/56554db6-4a9d-4f3e-b13e-e961b80bb7d3">  
+<img width="545" alt="image" src="https://github.com/OMNISSIAHHHH/rnaseq/assets/44955859/56554db6-4a9d-4f3e-b13e-e961b80bb7d3">
+
 索引建立仅需运行一次，由于运算量巨大，可能需要30min至3h左右的时间
+
 ```
 STAR --runMode genomeGenerate \ 【创造索引模式开启】
 --runThreadN  20 \ 【规定线程数】
@@ -143,6 +145,7 @@ STAR --runMode genomeGenerate \ 【创造索引模式开启】
 --sjdbGTFfile hg19.gtf \ 【\后输入路径提供基因组gtf 注释文件】
 --sjdbOverhang 【overhang数字，默认为100】
 ```
+
 * Star_alignment 基因比对
 ```
 STAR --runThreadN  20 \ 【规定线程数】
@@ -161,8 +164,9 @@ For multiple read files, the corresponding read groups can be supplied with spac
 separated list in --outSAMattrRGline, e.g.
 --outSAMattrRGline ID:sample1 , ID:sample2 , ID:sample3】
 ```
+
 #### possible issue 可能存在的问题  
-mac m1/m2 (pro) chip: 输入指令时不要输入runThreadN。该指令会指定分配给任务的线程数。制定线程数可能会导致电脑严重卡顿，且造成自动终止 (zsh: killed)   
+mac m1/m2 (pro) chip: 输入指令时不要输入runThreadN。该指令会指定分配给任务的线程数。制定线程数可能会导致电脑严重卡顿，且造成自动终止 (zsh: killed)     
 
 For more information, visit [STAR Manual](https://physiology.med.cornell.edu/faculty/skrabanek/lab/angsd/lecture_notes/STARmanual.pdf)
 
