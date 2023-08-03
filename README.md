@@ -110,9 +110,13 @@ For More information, visit [SortMeRNA Documentation](https://sortmerna.readthed
 
 ## Analysis Procedure 4: Genome Alignment 分析进程4:基因组比对
 ### Method: STAR 
+### STAR Installation
+### STAR Command
+#### possible issue
+mac m1/m2 (pro) chip: 输入指令时不要输入runThreadN。该指令会指定分配给任务的线程数。制定线程数可能会导致电脑严重卡顿，且造成自动终止 (zsh: killed) 
 ## Analysis Procedure 5: Gene Counting 分析进程5:基因计数
 ### Method: feature (subread)
-### Subread Command
+### Subread Installation
 Installation through Bioconda:
 ```
 conda install -c bioconda subread - yes
