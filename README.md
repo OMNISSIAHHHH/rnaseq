@@ -82,20 +82,18 @@ conda install -c bioconda trim-galore
 ```
 ### Trim Galore Command
 ```
-Usage: 
+* Usage: 
 trim_galore [options] <filename(s)>
 Common commands:
-trim_galore
---paired 【说明数据为双端测序结果，如果是single-end则不需要加这个】
---quality 20 【最低质量去除值，默认为20】
--a XXXXXXXXXX 【可以指定read 1的adapter sequence】
--a2 XXXXXXXXXX 【可以指定read 2 的adapter sequence】
---length 20 【删除小鱼该长度的reads,默认值为20，如不想删除可设为0】
--- illumina: Adapter sequence to be trimmed is the first 13bp of the Illumina universal adapter AGATCGGAAGAGC 
-instead of the default auto-detection of adapter sequence. 【指定裁剪掉illumina 特有adapter 序列，而非自动识别】
--- gzip: Compress the output file with gzip. 【使用gzip压缩输出文件】
--- -o/--output_dir <DIR>： If specified all output will be written to this directory instead of the current directory.
-If the directory doesn't exist it will be created for you. 【特别指定结果输出位置，如该路径不存在，则会创造该路径】
+trim_galore \
+--paired \【说明数据为双端测序结果，如果是single-end则不需要加这个】
+--quality 20 \【最低质量去除值，默认为20】
+-a XXXXXXXXXX \【可以指定read 1的adapter sequence】
+-a2 XXXXXXXXXX \【可以指定read 2 的adapter sequence】
+--length 20 \【删除小鱼该长度的reads,默认值为20，如不想删除可设为0】
+-- illumina \【指定裁剪掉illumina 特有adapter 序列，而非自动识别】
+-- gzip \【使用gzip压缩输出文件】
+-- -o/--output_dir <DIR> \ 【特别指定结果输出位置，如该路径不存在，则会创造该路径】
 ```
 For more options visit [Trim Galore Official Usage Guide](https://github.com/FelixKrueger/TrimGalore/blob/master/Docs/Trim_Galore_User_Guide.md)
 
@@ -169,6 +167,7 @@ For more information, visit [STAR Manual](https://physiology.med.cornell.edu/fac
 ## Analysis Procedure 5: Gene Counting 分析进程5:基因计数
 
 ### Method: featureCounts (Subread)
+featureCounts is a highly efficient general-purpose read summarization program that counts mapped reads for genomic features such as genes, exons, promoter, gene bodies, genomic bins and chromosomal locations. It can be used to count both RNA-seq and genomic DNA-seq reads.
 
 ### Subread Installation
 
@@ -178,7 +177,7 @@ conda install -c bioconda subread - yes
 ```
 Usage:
 ```
-待添加
+待添加2
 ```
 Output:
 ```
