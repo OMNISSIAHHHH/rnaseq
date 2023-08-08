@@ -104,7 +104,7 @@ trim_galore  --quality 20 --illumina --max_n 3 -o /Users/jiazhenliu/sqanalysis/n
 
 For more options visit [Trim Galore Official Usage Guide](https://github.com/FelixKrueger/TrimGalore/blob/master/Docs/Trim_Galore_User_Guide.md)
 
-## Analysis Procedure 3: rRNA Removal(Conditional) 分析进程3: rRNA序列删除（条件性）
+## Analysis Procedure 3: rRNA Removal(Conditional) 分析进程3: rRNA序列删除
 
 ### Method: SortMeRNA
 SortMeRNA is a local sequence alignment tool for filtering, mapping and OTU clustering. The core algorithm is based on approximate seeds and allows for fast and sensitive analyses of NGS reads. The main application of SortMeRNA is filtering rRNA from metatranscriptomic data. 
