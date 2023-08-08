@@ -94,7 +94,14 @@ trim_galore \
 -- illumina \【指定裁剪掉illumina 特有adapter 序列，而非自动识别】
 -- gzip \【使用gzip压缩输出文件】
 -- -o/--output_dir <DIR> \ 【特别指定结果输出位置，如该路径不存在，则会创造该路径】
+-- max_n 3 \ 【含 N Reads 过滤：当单端测序 Reads 中 N 个数>3 时，去除此对 Paired reads. N可变】
 ```
+* Example:
+```
+trim_galore  --quality 20 --illumina --max_n 3 -o /Users/jiazhenliu/sqanalysis/new_workflow/results/2_trimmed_output --paired /Users/jiazhenliu/sqanalysis/new_workflow/input/A40-1_L1_374X74.R1.fastq /Users/jiazhenliu/sqanalysis/new_workflow/input/A40-1_L1_374X74.R2.fastq  
+【如果是paired-end，则一定要把--paired指令放在文件路径前，subread认为两个两个是一对，所以请按照一对来输入文件路径。】 
+```
+
 For more options visit [Trim Galore Official Usage Guide](https://github.com/FelixKrueger/TrimGalore/blob/master/Docs/Trim_Galore_User_Guide.md)
 
 ## Analysis Procedure 3: rRNA Removal(Conditional) 分析进程3: rRNA序列删除（条件性）
