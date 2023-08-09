@@ -171,10 +171,18 @@ For multiple read files, the corresponding read groups can be supplied with spac
 separated list in --outSAMattrRGline, e.g.
 --outSAMattrRGline ID:sample1 , ID:sample2 , ID:sample3】
 ```
+* Example
+```
+alignment:
+STAR --runThreadN 10 --genomeDir /Volumes/NOLIMIT/sqanalysis/new_workflow/star_index --readFilesIn /Volumes/NOLIMIT/sqanalysis/new_workflow/results/2_trimmed_output/A5-1_L1_371X71.R1_val_1.fq /Volumes/NOLIMIT/sqanalysis/new_workflow/results/2_trimmed_output/A5-1_L1_371X71.R2_val_2.fq --genomeSAindexNbases 12--genomeSAsparseD 3 --outFileNamePrefix /Volumes/NOLIMIT/sqanalysis/new_workflow/results/4_aligned_sequences/A5
+
+【如果是paried-end reads， 则在`--readFilesIn` 后输入两个文件路径，用空格分开。】
+--outFileNamePrefix: 指定输出文件的路径和前缀
+```
 
 #### possible issue 可能存在的问题  
-mac m1/m2 (pro) chip: 输入指令时不要输入runThreadN。该指令会指定分配给任务的线程数。制定线程数可能会导致电脑严重卡顿，且造成自动终止 (zsh: killed)     
-
+mac 输入指令时输入runThreadN N= number of cores of CPU。该指令会指定分配给任务的线程数。制定线程数可能会导致电脑严重卡顿，且造成自动终止 (zsh: killed)     
+如果为32G 以下RAM的电脑，尝试在命令中加入 `--genomeSAindexNbases 12--genomeSAsparseD 3` 具体原因可以参考官方指南中2.2.5.
 For more information, visit [STAR Manual](https://physiology.med.cornell.edu/faculty/skrabanek/lab/angsd/lecture_notes/STARmanual.pdf)
 
 ## Analysis Procedure 5: Gene Counting 分析进程5:基因计数
